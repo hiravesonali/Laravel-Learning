@@ -20,7 +20,7 @@ Released   : 20140225
 
 <link href="css/default.css" rel="stylesheet"/>
 <link href="css/fonts.css" rel="stylesheet"/>
-
+<link rel="stylesheet" href="css/app.css" />
 
 </head>
 <body>
@@ -43,5 +43,10 @@ Released   : 20140225
 </div>
     
 @yield('content')
+
+<div id="copyright" class="container">
+	<p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+</div>
+<script src="/js/app.js"></script>
 </body>
 </html>
