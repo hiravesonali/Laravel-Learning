@@ -15,23 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 //  Route::get('posts/{post}' , 'PostsController@show');
 
-Route::get('/', function(){
-return view('welcome');
+Route::get('/', function() {
+    return view('welcome');
 });
 
-Route::get('/about', function(){
+Route::get('/about', function() {
     return view('about', [
-    'articles' => App\Article::take(3)->latest()->get()  // order latest by descending or latest time 
+        'articles' => App\Article::take(3)->latest()->get()  // order latest by descending or latest time
     ]);
-
 });
 
 Route::get('/articles', 'ArticlesController@index');
 Route::post('/articles', 'ArticlesController@store');
 Route::get('/articles/create', 'ArticlesController@create');
 Route::get('/articles/{article}', 'ArticlesController@show');
-
-
 
 
 // GET/articles
@@ -54,7 +51,7 @@ Route::get('/articles/{article}', 'ArticlesController@show');
 
 // what if for video subscribe
 
-// GET/video/subscribe   *it's verb and not gonna work 
+// GET/video/subscribe   *it's verb and not gonna work
 
 //  ->
 // POST/videos/subscriptions => VideoSubscriptionsController@store
