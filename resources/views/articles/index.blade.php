@@ -25,7 +25,7 @@
 				/> 
             </p>
 
-            {{!! $article->excerpt !!}}
+            {{ $article->excerpt }}
 
 		</div>
 		@endforeach
