@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div id="wrapper">
 	<div id="page" class="container">
 		<div id="content">
