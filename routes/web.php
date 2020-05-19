@@ -29,3 +29,29 @@ Route::get('/about', function(){
 Route::get('/articles', 'ArticlesController@index');
 
 Route::get('/articles/{article}', 'ArticlesController@show');
+
+
+// GET/articles
+// GET/articles/:id
+
+// GET, POST, DELETE, PUT
+
+// PUT/articles/:id      ->for update
+// DELETE/articles/:id      ->for delete
+
+
+//  GET/videos
+//  GET/videos/create  #create new video
+//  POST/videos       #post data in database
+//  GET/videos/2
+//  GET/videos/2/edit
+//  PUT/videos/2    #update video
+//  DELETE/videos/2
+
+
+// what if for video subscribe
+
+// GET/video/subscribe   *it's verb and not gonna work 
+
+//  ->
+// POST/videos/subscriptions => VideoSubscriptionsController@store
