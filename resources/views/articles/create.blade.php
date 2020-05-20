@@ -16,7 +16,16 @@
             <label class="label" for="title">Title</label>
 
             <div class="control ">
-                <input class="input w-full bg-gray-400 rounded h-12" type="text" name="title" id="title">
+                <input class="input {{ $errors->has('title') ? 'border border-red-500' : '' }} w-full bg-gray-400 rounded h-12"
+                type="text"
+                name="title"
+                id="title"
+                value="{{ old('title') }}">
+
+                @error('title')
+                <p class="text-red-500">{{ $errors->first('title') }} </p>
+                @enderror
+
             </div>
 
         </div>
@@ -25,7 +34,16 @@
             <label class="label" for="excerpt">Excerpt</label>
 
             <div class="control">
-                <input class="input w-full bg-gray-400 rounded h-12" type="text" name="excerpt" id="excerpt">
+                <input class="input {{ $errors->has('excerpt') ? 'border border-red-500' : '' }} w-full bg-gray-400 rounded h-12"
+                type="text"
+                name="excerpt"
+                id="excerpt"
+                value="{{ old('excerpt') }}">
+
+                @error('excerpt')
+                <p class="text-red-500">{{ $errors->first('excerpt') }} </p>
+                @enderror
+
             </div>
 
         </div>
@@ -34,7 +52,12 @@
             <label class="label" for="body">Body</label>
 
             <div class="control">
-                <textarea class="textarea w-full bg-gray-400 rounded h-24" name="body" id="body"></textarea>
+                <textarea class="textarea {{ $errors->has('body') ? 'border border-red-500' : '' }} w-full bg-gray-400 rounded h-24" name="body" id="body">{{ old('body') }}</textarea>
+
+                @error('body')
+                <p class="text-red-500">{{ $errors->first('body') }} </p>
+                @enderror
+
             </div>
 
         </div>
