@@ -17,15 +17,12 @@ class ArticlesController extends Controller
     public function show(Article $article)
     {
         // show a single resource.
-        //$article = Article::findOrFail($id);
-
         return view('articles.show', ['article' => $article]);
     }
 
     public function create()
     {
         //show a view to create a new resource.
-        //exa. after user click on submit form.
         return view ('articles.create');
     }
 
