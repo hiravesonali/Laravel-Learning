@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-
-
     // public function getRouteKeyName()
     // {
     //     return 'slug';  // Article::where('slug', $article)
     // }
+
+        protected $fillable = ['title', 'excerpt', 'body'];  //first method for protect
+
+     // protected $guarded = [];
+
 }

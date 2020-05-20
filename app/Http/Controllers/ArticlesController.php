@@ -33,17 +33,9 @@ class ArticlesController extends Controller
     {
         // persist or store a new resource.
 
-        request()->validate([
-            'title' => 'required',
-            'excerpt' => 'required',
-            'body' => 'required',
-        ]);
+        $validatedAttributes = $this->validateArticle();
 
-        $article = new Article();
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
-        $article->save();
+        Article::create($validatedAttributes);
 
         return redirect('/articles');
     }
@@ -64,23 +56,25 @@ class ArticlesController extends Controller
         //persist the edited resource.
         // or update the new data.
 
-        request()->validate([
-            'title' => 'required',
-            'excerpt' => 'required',
-            'body' => 'required',
-        ]);
+       $validatedAttributes = $this->validateArticle();
 
-        //$article = Article::find($id);
-        $article->title = request('title');
-        $article->excerpt = request('excerpt');
-        $article->body = request('body');
-        $article->save();
+        $article->update($validatedAttributes);
 
         return redirect('/articles/'. $article->id);
     }
 
+
     public function destroy()
     {
         // delete the resource or user.
+    }
+
+    protected function validateArticle()
+    {
+        return request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required',
+        ]);
     }
 }
