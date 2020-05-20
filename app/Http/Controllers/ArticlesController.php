@@ -14,10 +14,11 @@ class ArticlesController extends Controller
         return view('articles.index', ['articles' => $articles]);
     }
 
-    public function show($articleId)
+    public function show(Article $article)
     {
         // show a single resource.
-        $article = Article::find($articleId);
+        //$article = Article::findOrFail($id);
+
         return view('articles.show', ['article' => $article]);
     }
 
@@ -47,18 +48,18 @@ class ArticlesController extends Controller
         return redirect('/articles');
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
         // show a view to edit an existing resource.
         //exa. save customers details edit again in form.
-        $article = Article::find($id);
+        //$article = Article::find($id);
 
         return view('articles.edit', compact('article'));
 
 
     }
 
-    public function update($id)
+    public function update(Article $article)
     {
         //persist the edited resource.
         // or update the new data.
@@ -69,7 +70,7 @@ class ArticlesController extends Controller
             'body' => 'required',
         ]);
 
-        $article = Article::find($id);
+        //$article = Article::find($id);
         $article->title = request('title');
         $article->excerpt = request('excerpt');
         $article->body = request('body');
