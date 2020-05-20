@@ -10,7 +10,7 @@
 		<div class="content">
 			<div class="title">
 				<h2>
-					<a href="/articles/{{ $article->id }}">
+					<a href="{{ $article->path() }}">
 
 					{{ $article->title }}
 
@@ -18,11 +18,11 @@
 				</h2>
 
             </div>
-                
-            <p><img src="/css/images/banner.jpg" 
-                    alt="banner-img" 
-					class="image image-full" 
-				/> 
+
+            <p><img src="/css/images/banner.jpg"
+                    alt="banner-img"
+					class="image image-full"
+				/>
             </p>
 
             {{ $article->excerpt }}
@@ -31,5 +31,5 @@
 		@endforeach
     </div>
 </div>
-@endsection 
+@endsection
 
