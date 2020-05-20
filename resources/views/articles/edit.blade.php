@@ -8,15 +8,16 @@
 
 <div class="w-full max-w-full" id="wrapper">
 	<div id="page" class="container">
-        <h1 class="text-2xl font-bold mb-4">New Article</h1>
+        <h1 class="text-2xl font-bold mb-4">Update Article</h1>
 
-    <form action="/articles" method="post">
+    <form action="/articles/{{ $article->id }}" method="POST">
         @csrf
+        @method('PUT')
         <div class="field block text-gray-700 text-xl mb-2">
             <label class="label" for="title">Title</label>
 
             <div class="control ">
-                <input class="input w-full bg-gray-400 rounded h-12" type="text" name="title" id="title">
+                <input class="input w-full bg-gray-400 rounded h-12" type="text" name="title" id="title" value="{{ $article->title }}">
             </div>
 
         </div>
@@ -25,7 +26,7 @@
             <label class="label" for="excerpt">Excerpt</label>
 
             <div class="control">
-                <input class="input w-full bg-gray-400 rounded h-12" type="text" name="excerpt" id="excerpt">
+                <input class="input w-full bg-gray-400 rounded h-12" type="text" name="excerpt" id="excerpt" value="{{ $article->excerpt }}">
             </div>
 
         </div>
@@ -34,7 +35,7 @@
             <label class="label" for="body">Body</label>
 
             <div class="control">
-                <textarea class="textarea w-full bg-gray-400 rounded h-24" name="body" id="body"></textarea>
+                <textarea class="textarea w-full bg-gray-400 rounded h-24" name="body" id="body">{{ $article->body }}</textarea>
             </div>
 
         </div>
