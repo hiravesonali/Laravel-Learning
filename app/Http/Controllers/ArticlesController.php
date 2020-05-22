@@ -12,8 +12,7 @@ class ArticlesController extends Controller
     {
         if(request('tag')){
             $articles = Tag::where('name', request('tag'))->firstOrFail()->articles;
-        }
-        else {
+        } else {
             $articles = Article::latest()->get();
         }
 
@@ -44,8 +43,7 @@ class ArticlesController extends Controller
         $article = new Article(request(['title', 'excerpt', 'body']));
         $article->user_id = 1;
         $article->save();
-
-        $article->tags()->attach(request('tags'));
+         $article->tags()->attach(request('tags'));
 
         return redirect(route('articles.index'));
     }
@@ -57,8 +55,6 @@ class ArticlesController extends Controller
         //$article = Article::find($id);
 
         return view('articles.edit', compact('article'));
-
-
     }
 
     public function update(Article $article)
